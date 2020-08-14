@@ -1,0 +1,131 @@
+---
+title: "sección 11 datos ordinales"
+author: "Curso de algebra lineal"
+date: "8/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Datos ordianles
+
+```{r}
+notas = ordered(c("S","A", "N", "Ex", "S", "S", "Ex", "Ex", "N", "A", "A", "A",
+                  "A", "N", "S"), levels = c("S", "A", "N", "Ex"))
+table(notas)
+
+
+## Ejemplo2
+
+set.seed(2018)
+clientes = sample (1:5, 50, replace = TRUE)
+clientes
+
+CrossTable(notas)
+
+fabs = table(notas)
+
+
+prop.table(fabs) 
+
+cumsum(prop.table(fabs))
+
+
+
+
+set.seed(NULL)
+```
+
+
+
+# Datos ordianles multidimensional
+
+
+```{r}
+
+zonas = rep(c("A","B","C","D"), c(30,25,35,10))
+longitud =
+
+
+longitud = ordered(rep( 
+  c("Muy Corto", "Corto", "Normal", "Largo", "Muy largo")
+  ), levels = c("Muy Corto", "Normal", "Largo", "Muy largo"))
+
+
+jirafas = data.frame(zonas, longitud)
+jirafas
+
+
+```
+
+Cangrejos:
+
+```{r}
+
+crabs = read.table("../data/datacrab.txt", header = TRUE)
+crabs = crabs[,-1] #Omitimos la primera columna
+str(crabs)
+
+
+
+
+```
+
+
+
+
+```{r}
+#intervalos
+
+intervalos = cut(crabs$width, breaks = c(21,25,29,33, Inf)
+                 ,right = FALSE
+                 ,labels = c("21-25", "25-29", "29-33", "33-...")
+                 )
+crabs$width.rank = ordered(intervalos)
+str(crabs)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

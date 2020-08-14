@@ -1,0 +1,96 @@
+---
+title: "Seccion 10 Ejemplo Final"
+author: "Curso de algebra lineal"
+date: "8/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejempplo Final
+
+#@ Juntar color de ojos y pelo sin distinguir sexo
+
+```{r}
+ftable(HairEyeColor)
+male <- HairEyeColor[,, "Male"]
+female <- HairEyeColor[,, "Female"]
+
+sumaTablas =  as.table(male+female)
+sumaTablas
+
+
+
+```
+
+# Manipulacion de datos
+
+```{r}
+dimnames(sumaTablas) = list(
+  Pelo = c("Negro", "Marron", "Pelirrojo", "Rubio"),
+  Ojos = c ("Marrones", "Azules", "Pardos", "Verdes")
+)
+
+sumaTablas
+
+## Mosaico
+plot(sumaTablas, col=c("Blue", "red"))
+
+
+summary(sumaTablas)
+
+## Por separado
+
+sum(sumaTablas)
+colSums(sumaTablas)
+rowSums(sumaTablas)
+prop.table(colSums(sumaTablas))
+prop.table(rowSums(sumaTablas))
+
+
+
+
+```
+
+# Diagramas de barras
+
+```{r}
+barplot(prop.table(colSums(sumaTablas)))
+barplot(prop.table(rowSums(sumaTablas)))
+```
+
+
+# Frecuencias relativas globales y marginales
+
+```{r}
+barplot(prop.table(sumaTablas))
+barplot(prop.table(sumaTablas, margin = 1 ))
+barplot(prop.table(sumaTablas, margin = 2) )
+
+barplot(prop.table(sumaTablas, margin = 1), beside = TRUE, legend.text = TRUE
+        ,ylim = c(0,0.8) , col = c("black", "brown", "red", "yellow"))
+
+barplot(t(prop.table(sumaTablas, margin = 2)), beside = TRUE, legend.text = TRUE
+        ,ylim = c(0,0.8) , col = c("black", "brown", "red", "yellow"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

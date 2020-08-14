@@ -1,0 +1,39 @@
+---
+title: "Datos Cualitativos"
+author: "Curso de algebra lineal"
+date: "8/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Datos cualitativos
+
+```{r}
+
+x = sample(1:5, size = 12, replace = TRUE)
+x
+
+
+Respuestas = factor( sample( c("Si", "No") , size = 12, replace = TRUE))
+Respuestas
+
+
+## Función table
+names(table(x))
+table(Respuestas)
+
+## Función prop.table
+
+prop.table(table(Respuestas))
+
+## Tablas de frecuencias bidimensionales
+
+Sexo = sample( c("H", "M"), size = length(Respuestas),  replace = T)
+
+table(Sexo, Respuestas)
+```
+
+

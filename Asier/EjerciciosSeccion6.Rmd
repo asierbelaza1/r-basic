@@ -1,0 +1,157 @@
+---
+title: "Ejercicios sobre LaTeX, R y Markdown"
+author: "Curso de Estadística descriptiva"
+date: "8/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pregunta 1:
+
+Dadas las matrices:
+
+$$A =\begin{pmatrix} 
+1 & 2 & 3 & 4
+\\ 4 & 3 & 2 & 1
+\\ 0 & 1 & 0 & 2
+\\ 3 & 0 & 4 & 0\end{pmatrix}
+\hspace{3em}
+B = \begin{pmatrix}
+4 & 3 & 2 & 1
+\\ 0 & 3 & 0 & 4
+\\ 1 & 2 & 3 & 4
+\\ 0 & 1 & 0 & 2
+\end{pmatrix} $$
+
+
+Realizad los siguientes productos de matrices siguiente en R:
+
+$$A \cdot B$$
+$$ B \cdot A$$
+$$(A \cdot B)^t$$
+$$B^t \cdot A$$
+$$(A \cdot B)^{-1}$$
+$$A^{-1} \cdot B^{t}$$
+
+Operaciones en R:
+
+
+```{r}
+## Primero un verctor para cada una de las matrices, A y B:
+VA = c(1,2,3,4,4,3,2,1,0,1,0,2,3,0,4,0)
+VB = c(4,3,2,1,0,3,0,4,1,2,3,4,0,1,0,2)
+
+## Creamos las matrices
+A = matrix(VA, nrow=4)
+B = matrix(VB, nrow=4)
+
+## A*B 
+AB = A*B
+AB
+
+## B*A
+BA = B*A
+BA
+
+## (A*B)^t, donde asignamos t =3
+t = 3
+resutl  = (A*B)^t
+resutl
+
+## B^t*A donde t = 4
+t = 4
+resutl  = B^t*A
+resutl
+
+## (A*B)^(-1)
+resutl  = (A*B)^(-1)
+resutl
+
+## A^(-1)*B^t donde t = 5
+t = 5
+resutl  = A^(-1)*B^t 
+resutl
+
+```
+
+
+Hacemos la representación de $A \cdot B$:
+
+
+$$A \cdot B = \begin{pmatrix} 
+4 & 0 & 0 & 0
+\\ 6 & 9 & 2 & 0
+\\ 6 & 0 & 0 & 0
+\\ 4 & 4 & 8 & 0
+\end{pmatrix}$$
+
+
+Ahora $B \cdot A$:
+
+
+$$B \cdot A = \begin{pmatrix} 
+4 & 0 & 0 & 0
+\\ 6 & 9 & 2 & 0
+\\ 6 & 0 & 0 & 0
+\\ 4 & 4 & 8 & 0
+\end{pmatrix}$$
+
+El sesultado es es mismo por la propiedad conmutativa.
+
+
+## Pregunta 2:
+
+Considerad en un vector los números de vuestro DNI y llamadlo dni. Por ejemplo, si vuestro DNI es 54201567K, vuestro vector será:
+
+$$ dni = (5,4,2,0,1,5,6,7) $$
+```{r}
+## Definimos el vector dni
+dni = c(5,4,2,0,1,5,6,7)
+
+## dni al cuadrado
+v2 = dni^2
+v2
+
+## Raiz cuadrada de dni
+sqrt2 = sqrt(dni)
+sqrt2
+
+## Suma de todos las cifras de dni
+sum = sum(dni)
+sum
+```
+Vector dni al cuadrado:
+$$ dni = (25,16,4,0,1,25,36,49) $$
+
+Raiz cuadrada del vector dni:
+$$ dni = (2.236068,2,1.414214,0,1,2.236068,2.449490,2.645751) $$
+
+Suma de todas las cifras del vector dni:
+$$ 30 $$
+
+## Pregunta 3
+Considerad el vector de las letras de vuestro nombre y apellido. Llamadlo name. Por ejemplo, en mi caso sería:
+
+$$ nombre = (A,S,I,E,R,B,E,L,A,Z,A)$$
+
+Definid dicho vector en R. Calculad el subvector que solo contenga vuestro nombre
+
+Calculamos vector ordenado alfabeticamente:
+```{r}
+## Definimos el vector nombre y apellidos
+nombre = c("A","S","I","E","R","B","E","L","A","Z","A")
+nomreOrdenando = sort(nombre)
+```
+$$ nombreOrdenado = (A,A,A,B,E,E,I,L,R,S,Z)$$
+Obtememos un subvector con sólo el apellido:
+
+```{r}
+## Subvector con apellido
+subvectorApellido = nombre[0:-7]
+subvectorApellido
+```
+$$ nombreOrdenado = (B,E,L,A,Z,A)$$
+

@@ -1,0 +1,156 @@
+---
+title: "seccion10"
+author: "Curso de algebra lineal"
+date: "8/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Cross Table 
+
+```{r}
+## Tablas de frecuencias bidimensionales
+
+Sexo = sample( c("H", "M"), size = length(Respuestas),  replace = T)
+
+table(Sexo, Respuestas)
+
+
+
+## Cross Table
+
+library(gmodels)
+
+sex = factor(c("H", "M", "M", "H", "M", "M", "M", "H", "M", "M", "M", "H"))
+Respuestas = factor( sample( c("Si", "No") , size = 12, replace = TRUE))
+ans = Respuestas
+
+CrossTable(sex, ans, prop.chisq = FALSE)
+
+
+
+```
+
+Multidimensional
+
+```{r}
+
+
+ans = sample( c("SI", "No"), size = 100, replace = TRUE)
+sex = sample( c("H", "M"), size = 100, replace = TRUE)
+place = sample(c("SAn Francisco", "Barcelona", "Valencia", "Cobija") , size = 100, replace = TRUE)
+
+table (sex, ans, place)
+ftable (sex, ans, place)
+
+prop.table(table (sex, ans, place), margin = 3)
+
+
+
+
+```
+
+
+El conjunto de datos HairEyeColor
+
+```{r}
+HairEyeColor
+
+prop.table(HairEyeColor, margin = 2)
+```
+
+
+```{r}
+beb_erg = read.table("../data/EnergyDrink", header = TRUE)
+
+head(beb_erg)
+
+summary(beb_erg)
+
+apply(beb_erg, MARGIN = 2, FUN = table)
+
+
+```
+
+Diagrama circular
+
+
+
+```{r}
+
+x = c(1,2,5,7,9,0,5)
+pie(x)
+```
+
+
+
+Diagrama mosaico
+
+
+
+```{r}
+
+x = c(1,2,5,7,9,0,5)
+y = c("SI", "NO", "SI","SI", "NO", "SI", "NO")
+plot(table(x,y))
+plot(HairEyeColor, col=c("Blue", "red"))
+```
+
+```{r}
+vcd::cotabplot(HairEyeColor)
+```
+
+
+```{r}
+vcd::cotabplot(HairEyeColor)
+vcdExtra::mosaic3d(HairEyeColor, type="expected", box= TRUE, col=c("red", "blue"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+

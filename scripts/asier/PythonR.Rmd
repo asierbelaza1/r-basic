@@ -1,0 +1,18 @@
+---
+title: "Combinando Python y R"
+author: "Curso de estadística descriptiva"
+date: "8/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Numeros complejos
+
+```{r}
+z1 = 2+li
+```
+
+

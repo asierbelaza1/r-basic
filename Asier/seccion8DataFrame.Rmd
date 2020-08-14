@@ -1,0 +1,20 @@
+---
+title: "seccion8Matplotlib"
+author: "Curso de algebra lineal"
+date: "8/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Dataframe de iris
+
+
+```{r}
+df = iris
+head(df, 5)
+tail(df,5)
+```
+
